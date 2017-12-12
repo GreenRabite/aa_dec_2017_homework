@@ -1,7 +1,11 @@
+require_relative "player"
+require_relative "mancala"
+
 class Board
   attr_accessor :cups
 
-  def initialize(name1, name2)
+
+def initialize(name1, name2)
     @name1 = name1
     @name2 = name2
     @cups = Array.new(14){Array.new}
@@ -11,7 +15,7 @@ class Board
   def place_stones
     # helper method to #initialize every non-store cup with four stones each
     @cups.each_with_index do |cup,idx|
-      next if idx==6 || idx==13
+      next if idx == 6 || idx == 13
       4.times do
         cup << :stone
       end
@@ -19,26 +23,20 @@ class Board
   end
 
   def valid_move?(start_pos)
-    raise "Invalid starting cup" if start_pos < 0 || start_pos > 12
+    raise "Invalid starting cup" if start_pos > 12 || start_pos < 0
     raise "Invalid starting cup" if @cups[start_pos].empty?
   end
 
   def make_move(start_pos, current_player_name)
-    #empties cups
-    stones_in_hand = @cups[start_pos]
-    @cups[start_pos] = Array.new
-    #passes stones
+    stones = @cups[start_pos]
+    @cups[start_pos] = []
     cup_idx = start_pos
-    until stones_in_hand.empty?
-      cup_idx+=1
-      cup_idx=0 if cup_idx > 13
-      if cup_idx==6
-        @cups[6] << stones_in_hand.pop if current_player_name==@name1
-      elsif cup_idx==13
-        @cups[13] << stones_in_hand.pop if current_player_name==@name2
-      else
-        @cups[cup_idx] << stones_in_hand.pop
-      end
+    until stones.empty?
+      cup_idx += 1
+      cup_idx = 0 if cup_idx == 14
+      next if current_player_name == @name1 && cup_idx == 13
+      next if current_player_name == @name2 && cup_idx == 6
+      @cups[cup_idx] << stones.pop
     end
     render
     next_turn(cup_idx)
@@ -46,16 +44,13 @@ class Board
 
   def next_turn(ending_cup_idx)
     # helper method to determine what #make_move returns
-if ending_cup_idx == 6 || ending_cup_idx == 13
-  # ended on store -- get to choose where to start again
-  :prompt
-elsif @cups[ending_cup_idx].count == 1
-  # ended on empty cup -- switches players' turns
-  :switch
-else
-  # ended on cup with stones in it -- automatically starts there
-  ending_cup_idx
-end
+    if ending_cup_idx==6 || ending_cup_idx == 13
+      :prompt
+    elsif @cups[ending_cup_idx].length ==1
+      :switch
+    else
+      ending_cup_idx
+    end
   end
 
   def render
@@ -67,17 +62,18 @@ end
   end
 
   def one_side_empty?
-    @cups.take(6).all? { |cup| cup.empty? } || @cups[7..12].all? { |cup| cup.empty? }
+    return true if @cups[0..5].all?{|cup|cup.empty?}
+    return true if @cups[7..12].all?{|cup|cup.empty?}
+    false
   end
 
   def winner
-    player1_count = @cups[6].count
-    player2_count = @cups[13].count
-
-    if player1_count == player2_count
-      :draw
+    if @cups[6].length > @cups[13].length
+      @name1
+    elsif @cups[13].length > @cups[6].length
+      @name2
     else
-      player1_count > player2_count ? @name1 : @name2
+      :draw
     end
   end
 end
