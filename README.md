@@ -1,9 +1,13 @@
-#App Academy Homeworks
+<p align="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png">
+</p>
+
+# App Academy Homeworks
 
 Homework files to be checked by a/A TAs and Instructors for Andy Luo.
 
 
-##Table of Contents
+## Table of Contents
 
 Week          | Description
 ------------- | ---------------------------------------
