@@ -16,3 +16,4 @@ W2D1          | Object Oriented Programming (Simon Says)
 W2D2          | Object Oriented Programming (Mancala)
 W2D3          | TTD with RSPEC (Desserts)
 W2D4          | Big O Notation Exercises (Big O'ctopus)
+W2D5          | LRU Caches
