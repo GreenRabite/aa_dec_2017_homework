@@ -18,3 +18,4 @@ W2D3          | TTD with RSPEC (Desserts)
 W2D4          | Big O Notation Exercises (Big O'ctopus)
 W2D5          | LRU Caches
 W3D1          | SQL Queries Introduction
+W3D2          | ORM Databases and SQLite3
