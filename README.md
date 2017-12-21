@@ -2,10 +2,13 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png">
 </p>
 
+<p align = 'center'>
+![Corgis](https://media.giphy.com/media/WEiKBTaESHHhK/giphy.gif)
+</p>
+
 # App Academy Homeworks
 
 Homework files to be checked by a/A TAs and Instructors for Andy Luo.
-
 
 ## Table of Contents
 
@@ -20,3 +23,4 @@ W2D5          | LRU Caches
 W3D1          | SQL Queries Introduction
 W3D2          | ORM Databases and SQLite3
 W3D3          | Ruby on Rails Project
+W3D4          | Ruby on Rails - Active Record and Laziness
