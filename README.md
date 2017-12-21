@@ -2,9 +2,9 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png">
 </p>
 
-<!-- <p align = 'center'> -->
+<p align = "center">
 ![](https://media.giphy.com/media/WEiKBTaESHHhK/giphy.gif)
-<!-- </p> -->
+</p>
 
 # App Academy Homeworks
 
