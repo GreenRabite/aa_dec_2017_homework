@@ -5,15 +5,26 @@ class BooksController < ApplicationController
   end
 
   def new
-    # your code here
+    render :new
   end
 
   def create
-    # your code here
+    new_book = Book.new(book_params)
+
+    # redirect_to books_url if new_book.save
+    if new_book.save
+      redirect_to books_url
+    else
+      flash.now[:errors] = book.errors.full_messages
+      render :new
+    end
+
   end
 
   def destroy
-    # your code here
+    delete_book = Book.find(params[:id])
+    delete_book.destroy
+    redirect_to books_url
   end
 
   private
