@@ -19,3 +19,26 @@
 .content p {
 
 }
+
+.header-logo {
+  float: left;
+  border-right: solid 1px #ccc;
+  font-weight: 700;
+}
+
+.header-logo:hover {
+  background: #000;
+}
+
+.header-list {
+  float: right;
+}
+
+.header-list > li {
+  float: left;
+  border-left: solid 1px #ccc;
+}
+
+.header-list > li:hover {
+  background: #000;
+}
