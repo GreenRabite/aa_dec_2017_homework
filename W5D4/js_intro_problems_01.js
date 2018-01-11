@@ -73,9 +73,61 @@ function isSubstring(searchString, subString){
 // > isSubstring("Jump for joy", "joys")
 // false
 
-function fizzBuzz(array) {
-  var arr = []
-  array.forEach(function (num) {
-    if ((num % 3 === 0) || (num % 5 === 0)) && (num )
+// fizzBuzz
+//
+// 3 and 5 are magic numbers.
+//
+// Define a function fizzBuzz(array) that takes an array and returns
+// a new array of every number in the array that is divisible by either
+// 3 or 5, but not both.
+function fizzBuzz(array){
+  var arr = [];
+  for (var i = 0; i < array.length; i++){
+    if (array[i] % 3 ===0 && array[i] % 5 === 0){
+      continue;
+    }else if (array[i] % 3 === 0 || array[i] % 5 ===0) {
+      arr.push(array[i]);
+    }
   }
-});
+  return arr;
+};
+
+// isPrime
+//
+// Define a function isPrime(number) that returns true if number is prime.
+//  Otherwise, false. Assume number is a positive integer.
+
+function isPrime(number) {
+  for (var i = 2; i < number - 1; i++){
+    if (number % i ===0){
+      return false;
+    }
+  }
+  return true;
+};
+
+// sumOfNPrimes
+//
+// Using firstNPrimes, write a function sumOfNPrimes(n) that returns the
+// sum of the first n prime numbers. Hint: use isPrime as a helper method.
+
+function firstNPrimes (n){
+  var primeArr = [];
+  var i = 2;
+  while (primeArr.length !== n) {
+    if (isPrime(i) === true){
+      primeArr.push(i);
+    }
+    i++;
+  }
+  return primeArr;
+};
+
+function sumOfPrimes(n) {
+  let sum = 0;
+  var primeArr = firstNPrimes(n);
+  for (var i = 0; i < primeArr.length; i++) {
+    sum += primeArr[i]
+  }
+  return sum
+};
