@@ -4,11 +4,13 @@
 //    alert('HAMMER TIME');
 // },5000);
 
-function hammerTime (time) {
-  window.setTimeout(function () {
-    alert(`${time} is HAMMER TIME!`);
-  });
-}
+//HammerTime Function
+
+// function hammerTime (time) {
+//   window.setTimeout(function () {
+//     alert(`${time} is HAMMER TIME!`);
+//   });
+// }
 
 
 const readline = require('readline');
@@ -33,3 +35,5 @@ function teaAndBiscuits () {
     });
   });
 }
+
+// teaAndBiscuits();
